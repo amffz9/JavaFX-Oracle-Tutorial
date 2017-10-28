@@ -46,10 +46,11 @@ public class FancyForm extends Application {
          * Create the text fields their labels and add them to the grid
          */
         final Text actionTarget = new Text();
+        actionTarget.setId("action-target");
         grid.add(actionTarget, 1, 6);
 
         Text sceneTitle = new Text("Welcome");
-        sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        sceneTitle.setId("welcome-text");
         grid.add(sceneTitle, 0,0,2,1);
 
         Label userName = new Label("User Name:");
@@ -62,10 +63,7 @@ public class FancyForm extends Application {
         grid.add(pwBox, 1, 2);
 
         Button btn = new Button("Sign In");
-        btn.setOnAction(event -> {
-            actionTarget.setFill(Color.FIREBRICK);
-            actionTarget.setText("Sign in button pressed");
-        });
+        btn.setOnAction(event -> actionTarget.setText("Sign in button pressed"));
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
